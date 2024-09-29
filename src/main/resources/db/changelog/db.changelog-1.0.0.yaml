@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: valcantaram
+      comment: 'Create table email'
+      changes:
+        - createTable:
+            schemaName: managment
+            tableName: email
+            columns:
+              - column:
+                  name: id_email
+                  type: UNIQUEIDENTIFIER
+                  defaultValueComputed: NEWID()
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(80)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: created_at
+                  type: DATETIME2
+                  defaultValueComputed: GETDATE()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: DATETIME2
+                  defaultValueComputed: GETDATE()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted_at
+                  type: DATETIME2
+                  defaultValueComputed: GETDATE()
+                  constraints:
+                    nullable: true
