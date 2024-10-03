@@ -30,11 +30,20 @@ dependencies {
 	implementation 'org.modelmapper:modelmapper:3.2.1'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+// Configuración para el archivo JAR ejecutable
+tasks.named('jar') {
+	enabled = false // Desactiva el JAR tradicional si usas bootJar
+}
+
+tasks.named('bootJar') {
+	mainClass = 'com.service.email.EmailApplication'
 }

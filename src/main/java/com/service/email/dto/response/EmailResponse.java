@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmailResponse {
-    private String idEmail;
+    private Long idEmail;
     private String email;
 }

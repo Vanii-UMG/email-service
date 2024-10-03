@@ -10,8 +10,8 @@ databaseChangeLog:
             columns:
               - column:
                   name: id_email
-                  type: UNIQUEIDENTIFIER
-                  defaultValueComputed: NEWID()
+                  type: BIGINT
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
@@ -23,19 +23,18 @@ databaseChangeLog:
                     unique: true
               - column:
                   name: created_at
-                  type: DATETIME2
-                  defaultValueComputed: GETDATE()
+                  type: DATETIME
+                  defaultValueComputed: CURRENT_TIMESTAMP
                   constraints:
                     nullable: false
               - column:
                   name: updated_at
-                  type: DATETIME2
-                  defaultValueComputed: GETDATE()
+                  type: DATETIME
+                  defaultValueComputed: CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                   constraints:
                     nullable: false
               - column:
                   name: deleted_at
-                  type: DATETIME2
-                  defaultValueComputed: GETDATE()
+                  type: DATETIME
                   constraints:
                     nullable: true

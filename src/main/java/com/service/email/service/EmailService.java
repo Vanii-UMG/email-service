@@ -20,8 +20,6 @@ import java.util.regex.Pattern;
 
 @Service
 public class EmailService {
-
-    private final Logger logger = Logger.getLogger(EmailService.class.getName());
     private final EmailMapper emailMapper;
     private final EmailRepository emailRepository;
 

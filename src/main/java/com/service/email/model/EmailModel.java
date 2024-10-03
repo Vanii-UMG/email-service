@@ -1,9 +1,6 @@
 package com.service.email.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,9 +17,9 @@ import java.util.UUID;
 public class EmailModel {
 
     @Id
-    @UuidGenerator
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_email", nullable = false, updatable = false, unique = true)
-    private UUID idEmail;
+    private Long idEmail;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
